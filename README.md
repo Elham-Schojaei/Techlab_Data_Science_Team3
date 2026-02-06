@@ -30,13 +30,13 @@ Our approach allows clients to:
 → apply insights across platforms and campaigns
 
 Example Use Cases
-Social Media Teams
+- Social Media Teams
 → decide which images to post and when
-Marketing & Advertising Agencies
+- Marketing & Advertising Agencies
 → test visual strategies before launching campaigns
-E-commerce Platforms
+- E-commerce Platforms
 → optimize product images to increase interaction
-Content Creators & Brands
+- Content Creators & Brands
 → understand which visual elements attract audiences
 
 ---
