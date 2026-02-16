@@ -7,9 +7,7 @@ from tqdm import tqdm
 from PIL import Image
 from io import BytesIO
 
-# -----------------------
-# Settings (edit these)
-# -----------------------
+
 SEARCH_TAGS = ["travel", "portrait", "food"]  # tags to query
 IMAGES_TARGET = 300  # how many images to download locally (can increase later)
 SAMPLE_SIZE = 30     # how many sample images to commit to GitHub
@@ -127,12 +125,12 @@ def main():
     df.to_csv(RAW_CSV, index=False)
     print(f"Saved raw CSV: {RAW_CSV} ({len(df)} rows)")
 
-    # Create sample subset
+    
     sample_df = df.sample(min(SAMPLE_SIZE, len(df)), random_state=42)
     os.makedirs(os.path.dirname(SAMPLE_CSV), exist_ok=True)
     sample_df.to_csv(SAMPLE_CSV, index=False)
 
-    # Copy sample images into repo-tracked folder
+    
     for pid in sample_df["post_id"]:
         src = os.path.join(FULL_IMG_DIR, f"{pid}.jpg")
         dst = os.path.join(SAMPLE_IMG_DIR, f"{pid}.jpg")
