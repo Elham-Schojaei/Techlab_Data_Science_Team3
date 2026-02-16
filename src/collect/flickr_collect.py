@@ -57,11 +57,11 @@ def make_id(item):
     """
     link = item.get("link", "")
     parts = [p for p in link.split("/") if p]
-    # try to get the photo id (often last element)
+    
     for p in reversed(parts):
         if p.isdigit():
             return p
-    # fallback: replace non-alnum
+    
     return str(abs(hash(link)))
 
 
@@ -78,14 +78,14 @@ def main():
 
     print(f"Feed returned {len(items)} items. Downloading up to {IMAGES_TARGET}...")
 
-    # Loop and download (public feed is limited; if you need more, we can paginate by repeating with different tags)
+    
     for item in tqdm(items[:IMAGES_TARGET]):
         post_id = make_id(item)
         if post_id in seen:
             continue
         seen.add(post_id)
 
-        # The feed provides a media thumbnail-ish URL; usually good enough for feature extraction
+        
         img_url = item.get("media", {}).get("m")
         if not img_url:
             continue
@@ -97,7 +97,7 @@ def main():
         author = item.get("author", "")
         link = item.get("link", "")
 
-        # Download full image locally (local only)
+        
         full_path = os.path.join(FULL_IMG_DIR, f"{post_id}.jpg")
         if not os.path.exists(full_path):
             ok = safe_download_image(img_url, full_path)
