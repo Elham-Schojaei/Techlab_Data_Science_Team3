@@ -1,1 +1,39 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# Mac system files
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Data folders (DO NOT push raw data)
+data/raw/
+data/processed/
+data/interim/
+
+# Large files
+*.zip
+*.tar
+*.gz
+*.h5
+*.pkl
+*.joblib
+
+# Logs
+*.log
 
