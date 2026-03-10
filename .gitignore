@@ -26,6 +26,9 @@ data/raw/
 data/processed/
 data/interim/
 
+!data/raw/*.csv
+!data/processed/*.csv
+
 # Large files
 *.zip
 *.tar
