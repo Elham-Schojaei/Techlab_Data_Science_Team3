@@ -27,22 +27,22 @@ viz = df[['likes', 'brightness', 'sharpness', 'width', 'height', 'aspect_ratio']
 viz.hist()
 plt.show()
 
-plt.scatter(df["brightness"], df["likes"], color="blue")
+plt.scatter(df["brightness"], df["likes"], color="purple")
 plt.xlabel("brightness")
 plt.ylabel("likes")
 plt.show()
 
-plt.scatter(df["sharpness"], df["likes"], color="blue")
+plt.scatter(df["sharpness"], df["likes"], color="green")
 plt.xlabel("sharpness")
 plt.ylabel("likes")
 plt.show()
  
-plt.scatter(df["width"], df["likes"], color="blue")
+plt.scatter(df["width"], df["likes"], color="red")
 plt.xlabel("width") 
 plt.ylabel("likes")
 plt.show()  
 
-plt.scatter(df["height"], df["likes"], color="blue")
+plt.scatter(df["height"], df["likes"], color="orange")
 plt.xlabel("height")        
 plt.ylabel("likes")
 plt.show()
@@ -53,6 +53,21 @@ plt.xlabel("Aspect Ratio")
 plt.ylabel("Likes")
 plt.title("Aspect Ratio vs Likes")
 plt.show()
+
+
+
+#linear regression modelS:
+
+from sklearn import linear_model
+
+# Keep needed columns
+cdf = df[['likes', 'brightness', 'sharpness', 'width', 'height', 'aspect_ratio']]
+
+# Train-test split
+msk = np.random.rand(len(cdf)) < 0.8
+train = cdf[msk]
+test = cdf[~msk]
+
 
 
 
@@ -81,21 +96,6 @@ plt.xlabel("sharpness")
 plt.ylabel("likes")
 plt.legend()
 plt.show()
-
-
-#linear regression modelS:
-
-from sklearn import linear_model
-
-# Keep needed columns
-cdf = df[['likes', 'brightness', 'sharpness', 'width', 'height', 'aspect_ratio']]
-
-# Train-test split
-msk = np.random.rand(len(cdf)) < 0.8
-train = cdf[msk]
-test = cdf[~msk]
-
-
 
 
 # simple linear regression for brightness and likes
