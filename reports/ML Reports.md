@@ -26,7 +26,6 @@ The dataset contains **1006 images** and the following relevant columns:
 
 An additional feature, **aspect ratio**, was created as:
 
-```python
 aspect_ratio = width / height
 
 ## Summary Statistics
