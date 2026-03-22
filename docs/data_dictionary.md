@@ -88,7 +88,7 @@ This classification helps analyze whether certain image formats perform better i
 
 To investigate how visual characteristics relate to engagement, several analyses were performed.
 
-1. Brightness vs Engagement
+### Brightness Analysis
 
 A scatter plot was used to explore the relationship between brightness and engagement.
 
@@ -99,7 +99,7 @@ Findings:
 
 This suggests that brightness alone is not a strong driver of engagement.
 
-2. Sharpness vs Engagement
+### Sharpness Analysis
 
 A similar analysis was conducted for image sharpness.
 
@@ -108,7 +108,7 @@ Findings:
 - Correlation with engagement is close to zero.
 - This indicates that image clarity alone does not significantly influence engagement levels.
 
-3. Image Orientation and Engagement
+### Image Orientation Analysis
 
 Engagement distributions were compared across image formats using boxplots.
 
@@ -119,7 +119,7 @@ Findings:
 
 This result suggests that vertical image formats may attract slightly more user attention, possibly because they occupy more screen space in social media feeds.
 
-#### Correlation Analysis
+### Correlation Analysis
 
 A correlation matrix was computed to examine relationships between all numerical variables.
 
@@ -129,7 +129,7 @@ Key observations:
 - Expected correlations between width, height, and aspect ratio due to their mathematical relationships
 - Overall, the visual features analyzed so far explain only a limited portion of engagement variability.
 
-#### Color Analysis
+### Color Analysis
 
 To extend the analysis beyond basic technical image properties, we also examined the role of dominant color.
 
@@ -168,7 +168,7 @@ These findings indicate that color palette may play an important role in visual 
 
 However, this relationship should be interpreted as associative rather than causal, since engagement is likely influenced by several additional factors, including image content and context.
 
-#### Time Analysis
+### Time Analysis
 
 A time-based analysis was also conducted to explore whether engagement changes over time and whether there are temporal patterns that may help explain performance differences.
 
