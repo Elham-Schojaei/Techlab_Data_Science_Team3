@@ -137,12 +137,12 @@ This suggests that low-level image properties alone are **not enough** to explai
 
 Image engagement is likely influenced much more strongly by other factors, such as:
 
-- image content
-- subject matter
-- composition
-- posting context
-- user popularity
-- captions or metadata not included in the model
+- Image content
+- Subject matter
+- Composition
+- Posting context
+- User popularity
+- Captions or metadata not included in the model
 
 ### Conclusion of the ML part
 
@@ -163,11 +163,12 @@ That insight is important: to better understand popularity, future work should c
 ### `src/`
 Python source code for the pipeline, including:
 
-- data collection from Unsplash
-- image downloading
-- feature extraction
-- dataset creation and merging
-- machine learning scripts
+- Data collection from Unsplash
+- Image downloading
+- Feature extraction
+- Dataset creation and merging
+- Machine learning scripts
+- Exploratory data analysis
 
 ### `data/raw/`
 Raw collected data from Unsplash.
@@ -178,21 +179,37 @@ Cleaned and merged datasets ready for analysis and modeling.
 ### `data/sample/`
 Example images
 
+### `reports/`
+Ml reports
+
 ### `reports/figures/`
 visual outputs used in reports.
 
+### `docs/`
+METHODOLOGY for Exploratory data analysis
+
+### `notebooks/`
+Exploratory data analysis notebook
 
 ---
+## How to use our codes: 
 
+You can start by generating the dataset yourself using `01_get_metadata.py` in `src/collect/`.  
+After that, extract the visual features and merge the data using `02_extract_features.py` and `03_merge.py` in `src/features/`.
+
+For the analysis part, you can run the EDA code in `src/Exploratory Data Analysis/`.  
+For the machine learning part, you can run the regression models in `src/Machine Learning/`.
+
+---
 ## Future Improvements
 
 Possible next steps for improving the project include:
 
-- adding semantic image features
-- using image content classification
-- including text-based metadata
-- exploring deep learning approaches
-- analyzing user- and platform-level context
+- Adding semantic image features
+- Using image content classification
+- Including text-based metadata
+- Exploring deep learning approaches
+- Analyzing user- and platform-level context
 
 ---
 
