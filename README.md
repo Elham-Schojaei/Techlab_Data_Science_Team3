@@ -1,132 +1,203 @@
 # WHAT MAKES AN IMAGE POPULAR?
 
-
 ## Project Overview
 
-### Why this project exists:  
+### Why this project exists
 
-Brands spend a lot of time and money creating images for social media, ads, and e-commerce — but choosing “the right” visuals is often based on gut feeling.
+Brands invest a lot of time and money in creating images for social media, advertising, and e-commerce. However, choosing “the right” visuals is often based on gut feeling.
 
-We wanted to change that.
-
-
-### What we built: 
-
-A data-driven framework that turns images into measurable data:
-
-✅ Collects large-scale image content
-✅ Extracts visual features 
-✅ Connects those features to engagement signals 
-
-In short: we help teams understand what makes an image perform better — and why.
+This project aims to make that process more data-driven.
 
 
-### What you get (business value)
+### What we built
 
-This project helps companies and creators:
+We developed a data-science pipeline that transforms images into measurable data by:
 
-✅Create stronger content
-Choose visual styles that consistently drive engagement.
+- collecting large-scale image content
+- extracting visual features
+- connecting those features to engagement signals
 
-✅Boost marketing results
-Improve reach, interaction, and campaign performance.
+In short, the project helps explore what makes an image perform better and why.
 
-✅Reduce trial-and-error
-Spend less budget on “guessing” what works.
 
-✅Scale decisions with confidence
-Apply insights across platforms, audiences, and campaigns.
+### Business value
 
+This project can help companies and creators:
+
+- **Create stronger content**  
+  Identify visual styles that are more likely to drive engagement.
+
+- **Improve marketing performance**  
+  Support better reach, interaction, and campaign results.
+
+- **Reduce trial-and-error**  
+  Make fewer decisions based only on guesswork.
+
+- **Scale decisions with confidence**  
+  Apply insights across platforms, audiences, and campaigns.
+
+---
 
 ## Who it’s for
 
-✅Social Media Teams
-Decide which images to post (and learn what your audience reacts to).
+- **Social Media Teams**  
+  To decide which images to post and better understand audience preferences.
 
-✅Marketing & Advertising Agencies
-Test visual strategies before launching big campaigns.
+- **Marketing and Advertising Agencies**  
+  To test visual strategies before launching larger campaigns.
 
-✅E-commerce Platforms
-Improve product imagery to increase interaction and interest.
+- **E-commerce Platforms**  
+  To improve product imagery and increase interaction.
 
-✅Brands & Content Creators
-Learn which visual elements attract attention — and repeat success.
+- **Brands and Content Creators**  
+  To identify visual elements that attract attention and repeat successful patterns.
 
 ---
 
-This project builds a complete data-science pipeline to explore how visual properties of images can be turned into measurable data for analysis.
+## Project Goal
 
+This project builds a complete data-science pipeline to investigate how visual properties of images can be transformed into measurable features and analyzed in relation to engagement.
 
-## Data source
+The main question is:
 
-We use the Unsplash API to collect:
+**Can low-level visual features such as brightness, sharpness, width, height, and aspect ratio help explain image popularity?**
 
-- image metadata (IDs, descriptions, tags, etc.)
-- image URLs for downloading the photos
+---
 
+## Data Source
 
-## What the pipeline does
+We use the **Unsplash API** to collect:
 
-Our workflow runs in clear steps:
+- image metadata
+- image URLs
+- descriptive information associated with each image
 
-- Collect metadata from Unsplash
-Fetches image metadata using the API and saves it as a structured CSV.
+---
 
-- Download the images
+## What the Pipeline Does
+
+The workflow is organized into several steps:
+
+### 1. Collect metadata from Unsplash
+Fetches image metadata using the API and saves it in a structured CSV file.
+
+### 2. Download images
 Uses the image URLs to download and store the photos locally.
 
-- Extract visual features from images
-Computes simple but meaningful features such as:
+### 3. Extract visual features
+Computes simple but meaningful image features such as:
 
-brightness (how light/dark an image is)
+- **brightness** — how light or dark an image is
+- **sharpness** — how clear or detailed an image is
 
-sharpness (how detailed/clear an image is)
+### 4. Merge everything into one dataset
+Combines metadata and extracted features into one final dataset for analysis and modeling.
 
-- Merge everything into one dataset
-Combines metadata + extracted features into one clean final table.
+---
 
+## Machine Learning Summary
 
+To investigate whether visual properties can predict popularity, we tested several regression-based machine learning models using the number of `likes` as the target variable.
 
-## 📁 Project Structure
+### Features used
+
+The main features tested were:
+
+- brightness
+- sharpness
+- width
+- height
+- aspect ratio
+
+### Models tested
+
+We explored:
+
+- **Simple Linear Regression**
+- **Multiple Linear Regression**
+- **Polynomial Regression (single feature)**
+- **Polynomial Regression (two features)**
+
+### Main finding
+
+Overall, the machine learning results showed that the tested visual features had **weak predictive power**.
+
+The best-performing model was:
+
+- **Polynomial Regression using aspect ratio and sharpness**
+- **R² = 0.0778**
+- **MAE = 1606.09**
+- **RMSE = 2168.56**
+
+Although this was the strongest result among the tested models, it still explained only a small portion of the variation in likes.
+
+### Interpretation
+
+This suggests that low-level image properties alone are **not enough** to explain or predict image popularity well.
+
+Image engagement is likely influenced much more strongly by other factors, such as:
+
+- image content
+- subject matter
+- composition
+- posting context
+- user popularity
+- captions or metadata not included in the model
+
+### Conclusion of the ML part
+
+The project shows that simple visual features can be measured and modeled, but they do not appear to be strong standalone predictors of popularity in this dataset.
+
+---
+
+## Key Insight
+
+This project is valuable not because it “solved” popularity prediction, but because it built a full end-to-end pipeline and showed the limits of using only basic image features for engagement prediction.
+
+That insight is important: to better understand popularity, future work should combine low-level image features with richer semantic and contextual information.
+
+---
+
+## Project Structure
 
 ### `src/`
-Python source code for the pipeline:
+Python source code for the pipeline, including:
 
-- data collection (Unsplash metadata)
-
+- data collection from Unsplash
 - image downloading
-
-- feature extraction (e.g., brightness, sharpness)
-
-- merging / dataset creation
-
----
-
-### `notebooks/`
-Jupyter notebooks for exploration, visualization, and experiments (EDA, prototyping, model testing).
-
----
+- feature extraction
+- dataset creation and merging
+- machine learning scripts
 
 ### `data/raw/`
-- Raw data collected from Unsplash (untouched):
-
-metadata.csv (image IDs + URLs + basic metadata)
----
+Raw collected data from Unsplash.
 
 ### `data/processed/`
-Cleaned and merged datasets ready for analysis and modeling (features, final dataset).
-
----
+Cleaned and merged datasets ready for analysis and modeling.
 
 ### `data/sample/`
-Small sample of data and images used for quick testing and demonstration
-
----
+Example images
 
 ### `reports/figures/`
-Generated plots, charts, and visual outputs used in reports and presentations.
+visual outputs used in reports.
+
 
 ---
 
-### `docs/`
-Project documentation (data dictionary, methodology notes, ethics statement, etc.).
+## Future Improvements
+
+Possible next steps for improving the project include:
+
+- adding semantic image features
+- using image content classification
+- including text-based metadata
+- exploring deep learning approaches
+- analyzing user- and platform-level context
+
+---
+
+## Final Note
+
+This project demonstrates a complete data-science workflow from data collection to feature engineering, exploratory analysis, and machine learning.
+
+It provides a solid foundation for future work on understanding what makes an image popular.
