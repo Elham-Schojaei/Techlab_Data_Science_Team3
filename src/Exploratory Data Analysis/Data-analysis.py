@@ -10,7 +10,18 @@ sns.set_theme(style="whitegrid")
 
 
 ## Load Dataset
-data = pd.read_csv("data/processed/final_dataset.csv")
+import requests
+url = "https://raw.githubusercontent.com/Elham-Schojaei/Techlab_Data_Science_Team3/d349ebcddfa64b667b9113a5348ce1771ab33bc9/data/processed/final_dataset.csv"
+
+response = requests.get(url)
+response.raise_for_status()
+
+with open("final_dataset.csv", "wb") as f:
+    f.write(response.content)
+
+
+print("\nBasic Exploratory Data Analysis: \n")
+data = pd.read_csv("final_dataset.csv")
 
 
 ##  First Inspection
