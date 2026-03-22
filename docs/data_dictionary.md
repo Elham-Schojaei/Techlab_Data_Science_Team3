@@ -129,3 +129,85 @@ Key observations:
 - Expected correlations between width, height, and aspect ratio due to their mathematical relationships
 - Overall, the visual features analyzed so far explain only a limited portion of engagement variability.
 
+#### Color Analysis
+
+To extend the analysis beyond basic technical image properties, we also examined the role of dominant color.
+
+The dataset includes a color variable representing the main color associated with each image. To make this feature easier to interpret, dominant colors were grouped into broader categories such as:
+
+blue
+white
+gray
+red
+black
+green
+other
+
+This allowed us to compare engagement levels across different color groups.
+
+Dominant Color and Engagement
+
+The analysis suggests that dominant color is associated with differences in engagement.
+
+Key findings:
+
+- Blue and white dominant images show the highest average engagement.
+- Gray and red images show intermediate performance.
+- Green dominant images display the lowest engagement values on average.
+
+This result suggests that color may be more informative than some basic technical features such as brightness or sharpness.
+
+From a business perspective, this is relevant because color is directly linked to:
+
+- visual attention
+- emotional response
+- perceived aesthetic quality
+- brand communication
+
+These findings indicate that color palette may play an important role in visual performance, and that certain dominant tones may be more effective in attracting user interaction.
+
+However, this relationship should be interpreted as associative rather than causal, since engagement is likely influenced by several additional factors, including image content and context.
+
+#### Time Analysis
+
+A time-based analysis was also conducted to explore whether engagement changes over time and whether there are temporal patterns that may help explain performance differences.
+
+The created_at variable was converted into a datetime format, allowing the extraction of temporal features such as:
+
+- year
+- month
+- posting period
+- Engagement Over Time
+
+Monthly average engagement was analyzed to identify possible trends.
+
+The initial results suggested that engagement tends to decline over time, with earlier years showing higher and more stable average values, and more recent years displaying lower and more volatile engagement.
+
+However, a second analysis on the number of images per month showed that the dataset becomes much smaller in later periods. In particular:
+
+- the years between 2016 and 2018 contain the largest concentration of images
+- later years include far fewer monthly observations
+- months with very few images produce unstable average engagement values
+
+Because of this, the temporal analysis was refined by focusing on the period 2016–2018, which provides the most reliable and representative sample for time-based exploration.
+
+Main Insights from Time Analysis
+- Engagement is not constant over time
+- Earlier periods show more stable performance
+- Later periods appear more volatile, but this is partly due to the lower number of available images
+- Temporal context may influence engagement, but recent fluctuations should be interpreted with caution because of limited sample size
+
+This suggests that image performance should not be evaluated only through visual features, but also in relation to its temporal context, since broader platform dynamics, audience behavior, and dataset composition may affect results.
+
+## Updated Key Takeaways
+
+The exploratory analysis suggests that:
+
+Engagement follows a long-tail distribution, common in social media datasets
+- Basic visual properties such as brightness and sharpness show weak relationships with engagement
+- Image orientation may have a small effect, with portrait images performing slightly better
+- Dominant color appears to be more informative, with blue and white images showing higher average engagement
+- Time also matters, although temporal patterns must be interpreted carefully because of uneven sample size across years
+
+Overall, the results indicate that engagement is influenced by a combination of factors, and that simple technical image features alone are not enough to fully explain performance.
+
